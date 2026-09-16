@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>YUIKO MYOCHI | Pianist & Piano Lesson</title>
+
+  <meta name="description" content="ピアニスト 名智由似子の公式サイト。演奏活動とピアノレッスンのご案内。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #f8f5f0;
+      --cream: #f1ebe4;
+      --rose: #b59a98;
+      --deep: #403937;
+      --muted: #817572;
+      --line: #ded5ce;
+      --white: #fffdf9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--deep);
+      font-family: "Noto Serif JP", serif;
+      line-height: 1.9;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* =========================
+       Header
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(255, 253, 249, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(222, 213, 206, 0.7);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    nav a {
+      transition: opacity 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    /* =========================
+       Hero
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      background:
+        linear-gradient(
+          rgba(248, 245, 240, 0.25),
+          rgba(248, 245, 240, 0.55)
+        ),
+        url("S__14663691_0.jpg") center center / cover no-repeat;
+    }
+
+    .hero-content {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 150px 32px 100px;
+    }
+
+    .hero-small {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      letter-spacing: 0.18em;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(60px, 9vw, 110px);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-japanese {
+      margin-top: 20px;
+      font-size: 19px;
+      letter-spacing: 0.18em;
+    }
+
+    .hero-message {
+      margin-top: 35px;
+      max-width: 560px;
+      font-size: 15px;
+      line-height: 2.2;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 38px;
+      padding: 13px 32px;
+      border: 1px solid var(--deep);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      transition: all 0.3s ease;
+      background: rgba(255, 253, 249, 0.55);
+    }
+
+    .hero-button:hover {
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    /* =========================
+       Common
+    ========================= */
+
+    section {
+      padding: 110px 32px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      margin: 0 0 50px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 52px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .section-title span {
+      display: block;
+      margin-top: 12px;
+      font-family: "Noto Serif JP", serif;
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    /* =========================
+       Lessons
+    ========================= */
+
+    #lessons {
+      background: var(--cream);
+    }
+
+    .lesson-intro {
+      max-width: 760px;
+      margin-bottom: 55px;
+      font-size: 15px;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .lesson-card {
+      padding: 38px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .lesson-card h3 {
+      margin: 0 0 18px;
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .lesson-card .price {
+      margin-bottom: 18px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      letter-spacing: 0.05em;
+    }
+
+    .lesson-card p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    /* =========================
+       Information
+    ========================= */
+
+    .info-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 30px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .info-item strong {
+      font-weight: 500;
+    }
+
+    /* =========================
+       Concerts
+    ========================= */
+
+    #concerts {
+      background: var(--cream);
+    }
+
+    .concert {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .concert:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .concert-date {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      letter-spacing: 0.04em;
+    }
+
+    .concert h3 {
+      margin: 5px 0 10px;
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    .concert p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    /* =========================
+       Profile
+    ========================= */
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 43% 57%;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .profile-placeholder {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #d9cec7;
+    }
+
+    .profile-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-text h3 {
+      margin: 0 0 25px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .profile-text p {
+      font-size: 14px;
+      line-height: 2.2;
+    }
+
+    .career {
+      margin-top: 35px;
+      border-top: 1px solid var(--line);
+    }
+
+    .career-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    /* =========================
+       Contact
+    ========================= */
+
+    #contact {
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    #contact .section-title span {
+      color: #d4c8c1;
+    }
+
+    .contact-text {
+      max-width: 650px;
+      font-size: 14px;
+      line-height: 2.2;
+      margin-bottom: 35px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(255,255,255,0.6);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    /* =========================
+       Footer
+    ========================= */
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      background: var(--deep);
+      color: #cfc5bf;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    /* =========================
+       Mobile
+    ========================= */
+
+    @media (max-width: 760px) {
+
+      .header-inner {
+        padding: 14px 20px;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      nav {
+        gap: 12px;
+        font-size: 10px;
+      }
+
+      .hero-content {
+        padding: 130px 24px 80px;
+      }
+
+      .hero h1 {
+        font-size: 64px;
+      }
+
+      .hero-japanese {
+        font-size: 16px;
+      }
+
+      .hero-message {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 80px 24px;
+      }
+
+      .section-title {
+        font-size: 42px;
+        margin-bottom: 38px;
+      }
+
+      .lesson-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lesson-card {
+        padding: 28px;
+      }
+
+      .info-item {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .profile-text h3 {
+        font-size: 30px;
+      }
+
+      .career-item {
+        grid-template-columns: 65px 1fr;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       Header
+  ========================= -->
+
+  <header>
+    <div class="header-inner">
+
+      <a href="#top" class="logo">
+        YUIKO MYOCHI
+      </a>
+
+      <nav>
+        <a href="#lessons">Lessons</a>
+        <a href="#concerts">Concerts</a>
+        <a href="#profile">Profile</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       Hero
+  ========================= -->
+
+  <main id="top">
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="hero-small">
+          Pianist & Piano Lesson
+        </div>
+
+        <h1>
+          YUIKO<br>
+          MYOCHI
+        </h1>
+
+        <div class="hero-japanese">
+          名智 由似子
+        </div>
+
+        <p class="hero-message">
+          音楽とともに、心豊かな時間を。<br>
+          演奏活動とピアノレッスンを通して、<br>
+          一人ひとりの音楽との出会いを大切にしています。
+        </p>
+
+        <a href="#contact" class="hero-button">
+          CONTACT
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Lessons
+    ========================= -->
+
+    <section id="lessons">
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          Lessons
+          <span>ピアノレッスン</span>
+        </h2>
+
+        <p class="lesson-intro">
+          はじめてピアノに触れる方も、久しぶりに再開したい方も歓迎します。
+          譜面を追うだけでなく、自分の音を聴きながら弾けるようになることを目指します。
+          体験レッスンは随時受け付けています。
+        </p>
+
+        <div class="lesson-grid">
+
+          <div class="lesson-card">
+            <h3>お子さま</h3>
+            <div class="price">月3回 / 40分　10,000円</div>
+            <p>
+              4歳ごろから。<br>
+              姿勢と指の使い方を丁寧に整えながら、
+              無理なく続けられるペースで進めます。<br>
+              年1回の発表会があります。
+            </p>
+          </div>
+
+          <div class="lesson-card">
+            <h3>大人</h3>
+            <div class="price">1回 / 60分　6,000円</div>
+            <p>
+              回数はご都合に合わせてお選びいただけます。<br>
+              弾きたい曲を軸に、必要な技術を組み立てながら
+              丁寧にレッスンします。
+            </p>
+          </div>
+
+          <div class="lesson-card">
+            <h3>受験・コンクール</h3>
+            <div class="price">1回 / 90分　10,000円</div>
+            <p>
+              音大受験やコンクールを目指す方へ。<br>
+              課題曲の仕上げから、演奏会・本番当日の心構えまで
+              一緒に準備していきます。
+            </p>
+          </div>
+
+          <div class="lesson-card">
+            <h3>出張レッスン</h3>
+            <div class="price">1回 / 60分　8,000円＋交通費</div>
+            <p>
+              ご自宅にピアノがある方向けです。<br>
+              ピアノがない場合は、近隣スタジオを利用しての
+              レッスンも可能です。
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Information
+    ========================= -->
+
+    <section id="information">
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          Information
+          <span>レッスンについて</span>
+        </h2>
+
+        <div class="info-list">
+
+          <div class="info-item">
+            <strong>場所</strong>
+            <div>
+              ○○スタジオ（東京都中野区東中野）<br>
+              東中野駅 徒歩5分
+            </div>
+          </div>
+
+          <div class="info-item">
+            <strong>レッスン日時</strong>
+            <div>
+              いつでも対応可能です。<br>
+              ご都合の良い日時をご相談ください。
+            </div>
+          </div>
+
+          <div class="info-item">
+            <strong>体験レッスン</strong>
+            <div>
+              40分 / 2,000円
+            </div>
+          </div>
+
+          <div class="info-item">
+            <strong>出張交通費</strong>
+            <div>
+              実費
+            </div>
+          </div>
+
+          <div class="info-item">
+            <strong>スタジオ利用</strong>
+            <div>
+              利用料＋1,000〜3,000円程度
+            </div>
+          </div>
+
+          <div class="info-item">
+            <strong>オンライン</strong>
+            <div>
+              オンラインレッスンにも対応しています。
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Concerts
+    ========================= -->
+
+    <section id="concerts">
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          Concerts
+          <span>演奏会</span>
+        </h2>
+
+
+        <div class="concert">
+
+          <div class="concert-date">
+            2026.10.18
+          </div>
+
+          <h3>
+            秋のピアノ・リサイタル
+          </h3>
+
+          <p>
+            14:00 / ○○ホール（東京都○○区）
+          </p>
+
+          <p>
+            全席自由 3,500円
+          </p>
+
+          <p>
+            ショパン バラード第1番、<br>
+            ベートーヴェン ピアノソナタ「熱情」
+          </p>
+
+        </div>
+
+
+        <div class="concert">
+
+          <div class="concert-date">
+            2026.11.29
+          </div>
+
+          <h3>
+            室内楽の夕べ ― ピアノ三重奏
+          </h3>
+
+          <p>
+            18:30 / ○○市民文化センター
+          </p>
+
+          <p>
+            前売 3,000円
+          </p>
+
+          <p>
+            メンデルスゾーン ピアノ三重奏曲第1番 ほか
+          </p>
+
+        </div>
+
+
+        <div class="concert">
+
+          <div class="concert-date">
+            2026.12.23
+          </div>
+
+          <h3>
+            クリスマス・ファミリーコンサート
+          </h3>
+
+          <p>
+            15:00 / ○○区民ホール
+          </p>
+
+          <p>
+            入場無料（要整理券）
+          </p>
+
+          <p>
+            クリスマスの小品集、<br>
+            生徒さんとの連弾ステージ
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Profile
+    ========================= -->
+
+    <section id="profile">
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          Profile
+          <span>プロフィール</span>
+        </h2>
+
+
+        <div class="profile-grid">
+
+          <div class="profile-placeholder">
+            <img
+              src="S__14663689.jpg"
+              alt="名智 由似子"
+            >
+          </div>
+
+
+          <div class="profile-text">
+
+            <h3>
+              YUIKO MYOCHI
+            </h3>
+
+            <p>
+              5歳よりピアノを始める。<br>
+              福岡女学院高等学校音楽科を卒業後、
+              桐朋学園大学、同大学院を修了。<br>
+              その後渡仏し、○○氏、△△氏に師事。
+            </p>
+
+            <p>
+              ソロ・室内楽を中心に各地で演奏活動を行う。
+              演奏活動のかたわら、後進の指導にも力を注いでいる。
+            </p>
+
+
+            <div class="career">
+
+              <div class="career-item">
+                <div>○○</div>
+                <div>福岡女学院高等学校 音楽科 卒業</div>
+              </div>
+
+              <div class="career-item">
+                <div>○○</div>
+                <div>桐朋学園大学 卒業</div>
+              </div>
+
+              <div class="career-item">
+                <div>○○</div>
+                <div>桐朋学園大学院大学 修了</div>
+              </div>
+
+              <div class="career-item">
+                <div>○○</div>
+                <div>渡仏</div>
+              </div>
+
+              <div class="career-item">
+                <div>2021</div>
+                <div>初リサイタル</div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         Contact
+    ========================= -->
+
+    <section id="contact">
+
+      <div class="section-inner">
+
+        <h2 class="section-title">
+          Contact
+          <span>お問い合わせ</span>
+        </h2>
+
+        <p class="contact-text">
+          レッスンの体験申し込み、演奏のご依頼はこちらからお願いいたします。<br>
+          お問い合わせいただいてから3日以内を目安に返信いたします。
+        </p>
+
+        <div class="contact-links">
+
+          <a href="mailto:your-email@example.com">
+            Mail
+          </a>
+
+          <a href="#" target="_blank">
+            Instagram
+          </a>
+
+          <a href="#" target="_blank">
+            YouTube
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       Footer
+  ========================= -->
+
+  <footer>
+    © 2026 YUIKO MYOCHI
+  </footer>
+
+
+</body>
+</html>
