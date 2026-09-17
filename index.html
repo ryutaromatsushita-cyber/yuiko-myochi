@@ -103,6 +103,7 @@
       display: flex;
       align-items: center;
       position: relative;
+      overflow: hidden;
 
       background:
         linear-gradient(
@@ -112,10 +113,18 @@
         url("S__14663691_0.jpg") center center / cover no-repeat;
     }
 
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      will-change: transform;
+    }
+
     .hero-content {
       width: min(1180px, 100%);
       margin: 0 auto;
       padding: 150px 32px 100px;
+      position: relative;
     }
 
     .hero-small {
@@ -123,6 +132,8 @@
       font-size: 18px;
       letter-spacing: 0.18em;
       margin-bottom: 15px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.1s forwards;
     }
 
     .hero h1 {
@@ -132,12 +143,16 @@
       line-height: 0.95;
       font-weight: 500;
       letter-spacing: 0.03em;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.25s forwards;
     }
 
     .hero-japanese {
       margin-top: 20px;
       font-size: 19px;
       letter-spacing: 0.18em;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.4s forwards;
     }
 
     .hero-message {
@@ -145,6 +160,8 @@
       max-width: 560px;
       font-size: 15px;
       line-height: 2.2;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.55s forwards;
     }
 
     .hero-button {
@@ -156,11 +173,51 @@
       letter-spacing: 0.12em;
       transition: all 0.3s ease;
       background: rgba(255, 253, 249, 0.55);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.7s forwards;
     }
 
     .hero-button:hover {
       background: var(--deep);
       color: var(--white);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-small, .hero h1, .hero-japanese, .hero-message, .hero-button {
+        animation: none !important;
+        opacity: 1 !important;
+      }
+      .reveal {
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* =========================
+       Scroll reveal
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* =========================
@@ -218,6 +275,12 @@
       padding: 38px;
       background: var(--white);
       border: 1px solid var(--line);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(64, 57, 55, 0.1);
     }
 
     .lesson-card h3 {
@@ -272,10 +335,15 @@
     .concert {
       padding: 30px 0;
       border-top: 1px solid var(--line);
+      transition: padding-left 0.4s ease;
     }
 
     .concert:last-child {
       border-bottom: 1px solid var(--line);
+    }
+
+    .concert:hover {
+      padding-left: 14px;
     }
 
     .concert-date {
@@ -317,6 +385,11 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .profile-placeholder:hover img {
+      transform: scale(1.06);
     }
 
     .profile-text h3 {
@@ -377,6 +450,11 @@
       border-bottom: 1px solid rgba(255,255,255,0.6);
       font-size: 14px;
       letter-spacing: 0.08em;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      opacity: 0.6;
     }
 
     /* =========================
@@ -502,7 +580,7 @@
 
   <main id="top">
 
-    <section class="hero">
+    <section class="hero" id="hero-parallax">
 
       <div class="hero-content">
 
@@ -542,12 +620,12 @@
 
       <div class="section-inner">
 
-        <h2 class="section-title">
+        <h2 class="section-title reveal">
           Lessons
           <span>ピアノレッスン</span>
         </h2>
 
-        <p class="lesson-intro">
+        <p class="lesson-intro reveal">
           はじめてピアノに触れる方も、久しぶりに再開したい方も歓迎します。
           譜面を追うだけでなく、自分の音を聴きながら弾けるようになることを目指します。
           体験レッスンは随時受け付けています。
@@ -555,7 +633,7 @@
 
         <div class="lesson-grid">
 
-          <div class="lesson-card">
+          <div class="lesson-card reveal">
             <h3>お子さま</h3>
             <div class="price">月3回 / 40分　10,000円</div>
             <p>
@@ -566,7 +644,7 @@
             </p>
           </div>
 
-          <div class="lesson-card">
+          <div class="lesson-card reveal">
             <h3>大人</h3>
             <div class="price">1回 / 60分　6,000円</div>
             <p>
@@ -576,7 +654,7 @@
             </p>
           </div>
 
-          <div class="lesson-card">
+          <div class="lesson-card reveal">
             <h3>受験・コンクール</h3>
             <div class="price">1回 / 90分　10,000円</div>
             <p>
@@ -586,13 +664,33 @@
             </p>
           </div>
 
-          <div class="lesson-card">
+          <div class="lesson-card reveal">
             <h3>出張レッスン</h3>
             <div class="price">1回 / 60分　8,000円＋交通費</div>
             <p>
               ご自宅にピアノがある方向けです。<br>
               ピアノがない場合は、近隣スタジオを利用しての
               レッスンも可能です。
+            </p>
+          </div>
+
+          <div class="lesson-card reveal">
+            <h3>発表会・コンサート対策</h3>
+            <div class="price">1回 / 60分　7,000円</div>
+            <p>
+              発表会やコンクール本番を控えた方へ。<br>
+              仕上がった曲を人前で弾くための集中レッスンです。
+              本番を想定した通し稽古やステージマナーもサポートします。
+            </p>
+          </div>
+
+          <div class="lesson-card reveal">
+            <h3>室内楽の伴奏</h3>
+            <div class="price">要相談</div>
+            <p>
+              器楽・声楽の発表会やコンクールの伴奏を承ります。<br>
+              合わせの回数や曲目に応じてお見積りしますので、
+              お気軽にご相談ください。
             </p>
           </div>
 
@@ -611,12 +709,12 @@
 
       <div class="section-inner">
 
-        <h2 class="section-title">
+        <h2 class="section-title reveal">
           Information
           <span>レッスンについて</span>
         </h2>
 
-        <div class="info-list">
+        <div class="info-list reveal">
 
           <div class="info-item">
             <strong>場所</strong>
@@ -677,13 +775,13 @@
 
       <div class="section-inner">
 
-        <h2 class="section-title">
+        <h2 class="section-title reveal">
           Concerts
           <span>演奏会</span>
         </h2>
 
 
-        <div class="concert">
+        <div class="concert reveal">
 
           <div class="concert-date">
             2026.10.18
@@ -709,7 +807,7 @@
         </div>
 
 
-        <div class="concert">
+        <div class="concert reveal">
 
           <div class="concert-date">
             2026.11.29
@@ -734,7 +832,7 @@
         </div>
 
 
-        <div class="concert">
+        <div class="concert reveal">
 
           <div class="concert-date">
             2026.12.23
@@ -759,6 +857,30 @@
 
         </div>
 
+        <div class="concert reveal">
+
+          <div class="concert-date">
+            2027.02.11
+          </div>
+
+          <h3>
+            門下生発表会
+          </h3>
+
+          <p>
+            13:00 / ○○文化ホール
+          </p>
+
+          <p>
+            入場無料
+          </p>
+
+          <p>
+            生徒さんたちの1年間の成果を発表するステージです。
+          </p>
+
+        </div>
+
       </div>
 
     </section>
@@ -772,7 +894,7 @@
 
       <div class="section-inner">
 
-        <h2 class="section-title">
+        <h2 class="section-title reveal">
           Profile
           <span>プロフィール</span>
         </h2>
@@ -780,7 +902,7 @@
 
         <div class="profile-grid">
 
-          <div class="profile-placeholder">
+          <div class="profile-placeholder reveal">
             <img
               src="S__14663689.jpg"
               alt="名智 由似子"
@@ -788,7 +910,7 @@
           </div>
 
 
-          <div class="profile-text">
+          <div class="profile-text reveal">
 
             <h3>
               YUIKO MYOCHI
@@ -853,28 +975,24 @@
 
       <div class="section-inner">
 
-        <h2 class="section-title">
+        <h2 class="section-title reveal">
           Contact
           <span>お問い合わせ</span>
         </h2>
 
-        <p class="contact-text">
+        <p class="contact-text reveal">
           レッスンの体験申し込み、演奏のご依頼はこちらからお願いいたします。<br>
           お問い合わせいただいてから3日以内を目安に返信いたします。
         </p>
 
-        <div class="contact-links">
+        <div class="contact-links reveal">
 
-          <a href="mailto:your-email@example.com">
+          <a href="mailto:yuiii10969@icloud.com">
             Mail
           </a>
 
-          <a href="#" target="_blank">
-            Instagram
-          </a>
-
-          <a href="#" target="_blank">
-            YouTube
+          <a href="https://www.facebook.com/share/19fPVKKpjS/?mibextid=wwXIfr" target="_blank" rel="noopener">
+            Facebook
           </a>
 
         </div>
@@ -894,6 +1012,41 @@
     © 2026 YUIKO MYOCHI
   </footer>
 
+  <script>
+    // Scroll-reveal for sections
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || items.length === 0) {
+        items.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // Subtle parallax on the hero photo
+    (function () {
+      var hero = document.getElementById('hero-parallax');
+      if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var ticking = false;
+      window.addEventListener('scroll', function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          var offset = Math.min(window.scrollY, window.innerHeight) * 0.25;
+          hero.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)';
+          ticking = false;
+        });
+      }, { passive: true });
+    })();
+  </script>
 
 </body>
 </html>
