@@ -553,6 +553,109 @@ content="名智由似子の公式サイト。ピアノ演奏、リサイタル�
         align-items: flex-start;
       }
     }
+    /* =========================
+   Refinements
+========================= */
+
+/* 上品なページ表示アニメーション */
+body {
+  animation: pageFadeIn 1.2s ease both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ヘッダーの縮小 */
+header {
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+header.is-scrolled {
+  background: rgba(255, 253, 249, 0.96);
+  box-shadow: 0 5px 20px rgba(64, 57, 55, 0.06);
+}
+
+header.is-scrolled .header-inner {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.header-inner {
+  transition: padding 0.35s ease;
+}
+
+/* 年タイトル */
+.concert-year {
+  margin: 65px 0 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.concert-year:first-of-type {
+  margin-top: 0;
+}
+
+/* 外部リンクアイコン */
+.external-link::after {
+  content: " ↗";
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* メールアドレス */
+.email-address {
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+  letter-spacing: 0.04em;
+  transition: opacity 0.3s ease;
+}
+
+.email-address:hover {
+  opacity: 0.6;
+}
+
+/* Contactリンク */
+.contact-links {
+  position: relative;
+  z-index: 2;
+}
+
+/* スマホで年タイトルを少し小さく */
+@media (max-width: 760px) {
+  .concert-year {
+    margin-top: 48px;
+    font-size: 30px;
+  }
+
+  header.is-scrolled .header-inner {
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+}
+
+/* 動きを減らす設定のユーザーにはアニメーションを無効化 */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+
+  header,
+  .header-inner {
+    transition: none;
+  }
+}
   </style>
 </head>
 
@@ -910,8 +1013,13 @@ content="名智由似子の公式サイト。ピアノ演奏、リサイタル�
 
           <div class="profile-placeholder reveal">
             <img
-              src="S__14663689.jpg"
-              alt="名智 由似子"
+             src="S__14663689.jpg"
+
+  alt="ピアニスト 名智由似子のプロフィール写真"
+
+  loading="lazy"
+
+  decoding="async"
             >
           </div>
 
