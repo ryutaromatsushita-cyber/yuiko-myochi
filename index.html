@@ -658,6 +658,74 @@ header {
   object-fit: cover;
 }
 }
+    /* Concert cards */
+.concert-list {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  padding: 10px 5px 25px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.concert-list .concert {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  margin: 0;
+  padding: 0;
+}
+
+.concert-list .concert-image {
+  margin-bottom: 20px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.concert-list .concert-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.concert-list .concert:hover img {
+  transform: scale(1.03);
+}
+
+.concert-list .concert-date {
+  margin-bottom: 8px;
+}
+
+.concert-list h3 {
+  margin-bottom: 14px;
+}
+
+.concert-list p {
+  margin-bottom: 8px;
+}
+
+/* スクロールバーを控えめに */
+.concert-list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.concert-list::-webkit-scrollbar-thumb {
+  background: #b59a98;
+  border-radius: 10px;
+}
+
+/* スマホ */
+@media (max-width: 760px) {
+  .concert-list {
+    gap: 18px;
+    padding-right: 20px;
+  }
+
+  .concert-list .concert {
+    flex: 0 0 82%;
+  }
+}
   </style>
 </head>
 
@@ -892,70 +960,63 @@ header {
         </h2>
 
 
-      <div class="concert-year reveal">
-  2025
-</div>
+   <div class="concert-list">
 
-<div class="concert reveal">
+  <div class="concert reveal">
+    <div class="concert-image">
+      <img src="concert.jpg"
+           alt="秋のピアノ・リサイタル"
+           loading="lazy"
+           decoding="async">
+    </div>
 
-  <div class="concert-date">2025.9.6.9.27</div>
+    <div class="concert-date">2025.9.6.9.27</div>
+    <h3>音で旅するフランス</h3>
+    <p>14:00 / 福岡市民ホール</p>
+    <p>全席自由 3,500円</p>
+    <p>
+      ショパン バラード第1番、<br>
+      ベートーヴェン ピアノソナタ「熱情」
+    </p>
+  </div>
 
-  <h3>音で旅するフランス</h3>
 
-  <p>14:00 /福岡市民ホール</p>
+  <div class="concert reveal">
+    <div class="concert-image">
+      <img src="concert2.jpg"
+           alt="室内楽の夕べ ― ピアノ三重奏"
+           loading="lazy"
+           decoding="async">
+    </div>
 
-  <p>全席自由 3,500円</p>
+    <div class="concert-date">2026.11.29</div>
+    <h3>ピアノコンサート</h3>
+    <p>18:30 / 渋谷美竹サロン</p>
+    <p>前売 3,000円</p>
+    <p>
+      ベートーヴェン ピアノソナタ第1番 ほか
+    </p>
+  </div>
 
-  <p>
-    フォーレ:組曲＜ドリー＞、<br>
-    ベートーヴェン ピアノソナタ「熱情」
-  </p>
 
-  <div class="concert-image">
-    <img src="concert.jpg"
-         alt="音で旅するフランス"
-         loading="lazy"
-         decoding="async">
+  <div class="concert reveal">
+    <div class="concert-image">
+      <img src="concert3.jpg"
+           alt="クリスマス・ファミリーコンサート"
+           loading="lazy"
+           decoding="async">
+    </div>
+
+    <div class="concert-date">2022.9.8</div>
+    <h3>若きピアニスト達による YAMAHA GINZA SALON CONCERT VOL.16</h3>
+    <p>15:00 /ヤマハ銀座コンサートサロン</p>
+    <p>入場無料（要整理券）</p>
+    <p>
+    ベートーヴェン ピアノソナタ第1番 ほか
+    </p>
   </div>
 
 </div>
-
-<div class="concert reveal">
-  <div class="concert-date">2025.9.21</div>
-  <h3>ピアノコンサート</h3>
-  <p>18:30 / 渋谷美竹サロン</p>
-  <p>前売 3,000円</p>
-  <p>ベートーヴェン ピアノソナタ第17番 ほか</p>
-  <div class="concert-image">
-    <img src="concert2.jpg"
-         alt="ピアノコンサート"
-         loading="lazy"
-         decoding="async">
-  </div>
-
-</div>
-
-
-<div class="concert-year reveal">
-  2022
-</div>
-<div class="concert reveal">
-  <div class="concert-date">2022.9.8</div>
-  <h3>若きピアニスト達によるYAMAHA GINZA CONCERT vol.16</h3>
-  <p>18:30 / ヤマハ銀座コンサートサロン</p>
-  <p>前売 3,000円</p>
-  <p>ベートーヴェン ピアノソナタ第30番 ほか</p>
-
-  <div class="concert-image">
-    <img src="concert3.jpg"
-         alt="室内楽の夕べ ― ピアノ三重奏"
-         loading="lazy"
-         decoding="async">
-  </div>
-
-</div>
-    </section>
-
 
     <!-- =========================
          Profile
