@@ -1097,22 +1097,7 @@ header.is-scrolled .header-inner {
       }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
       items.forEach(function (el) { observer.observe(el); });
     })();
-
-    // Subtle parallax on the hero photo
-    (function () {
-      var hero = document.getElementById('hero-parallax');
-      if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var ticking = false;
-      window.addEventListener('scroll', function () {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function () {
-          var offset = Math.min(window.scrollY, window.innerHeight) * 0.25;
-          hero.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)';
-          ticking = false;
-        });
-      }, { passive: true });
-    })();
+    
     // Header shrink on scroll
 (function () {
   var header = document.querySelector('header');
