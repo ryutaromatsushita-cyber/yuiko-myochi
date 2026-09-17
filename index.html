@@ -439,24 +439,29 @@
       margin-bottom: 35px;
     }
 
-    .contact-links {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
+  .contact-links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
 
-    .contact-links a {
-      padding-bottom: 5px;
-      border-bottom: 1px solid rgba(255,255,255,0.6);
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      transition: opacity 0.3s ease;
-    }
+.contact-link {
+  display: inline-block;
+  padding: 8px 0;
+  color: var(--white);
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
 
-    .contact-links a:hover {
-      opacity: 0.6;
-    }
-
+.contact-link:hover {
+  opacity: 0.6;
+}
     /* =========================
        Footer
     ========================= */
@@ -985,20 +990,22 @@
           お問い合わせいただいてから3日以内を目安に返信いたします。
         </p>
 
-        <div class="contact-links reveal">
+       <div class="contact-links">
 
-          <a href="mailto:yuiii10969@icloud.com">
-            Mail
-          </a>
+  <a href="mailto:yuiii10969@icloud.com" class="contact-link">
+    Mail
+  </a>
 
-          <a href="https://www.facebook.com/share/19fPVKKpjS/?mibextid=wwXIfr" target="_blank" rel="noopener">
-            Facebook
-          </a>
+  <a
+    href="https://www.facebook.com/share/19fPVKKpjS/?mibextid=wwXIfr"
+    class="contact-link"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Facebook
+  </a>
 
-        </div>
-
-      </div>
-
+</div>
     </section>
 
   </main>
