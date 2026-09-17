@@ -60,7 +60,6 @@ content="名智由似子の公式サイト。ピアノ演奏、リサイタル�
       width: 100%;
       z-index: 100;
       background: rgba(255, 253, 249, 0.88);
-      backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(222, 213, 206, 0.7);
     }
 
@@ -578,16 +577,6 @@ header {
     box-shadow 0.35s ease;
 }
 
-header.is-scrolled {
-  background: rgba(255, 253, 249, 0.96);
-  box-shadow: 0 5px 20px rgba(64, 57, 55, 0.06);
-}
-
-header.is-scrolled .header-inner {
-  padding-top: 11px;
-  padding-bottom: 11px;
-}
-
 .header-inner {
   transition: padding 0.35s ease;
 }
@@ -1098,26 +1087,6 @@ header.is-scrolled .header-inner {
       items.forEach(function (el) { observer.observe(el); });
     })();
     
-    // Header shrink on scroll
-(function () {
-  var header = document.querySelector('header');
-
-  if (!header) return;
-
-  function updateHeader() {
-    if (window.scrollY > 40) {
-      header.classList.add('is-scrolled');
-    } else {
-      header.classList.remove('is-scrolled');
-    }
-  }
-
-  updateHeader();
-
-  window.addEventListener('scroll', updateHeader, {
-    passive: true
-  });
-})();
   </script>
 
 </body>
