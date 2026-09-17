@@ -644,6 +644,19 @@ header {
   .header-inner {
     transition: none;
   }
+  .concert-image {
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.concert-image img {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+}
 }
   </style>
 </head>
@@ -884,6 +897,14 @@ header {
 </div>
 
 <div class="concert reveal">
+
+  <div class="concert-image">
+    <img src="concert.jpg"
+         alt="秋のピアノ・リサイタル"
+         loading="lazy"
+         decoding="async">
+  </div>
+
   <div class="concert-date">2026.10.18</div>
   <h3>秋のピアノ・リサイタル</h3>
   <p>14:00 / ○○ホール（東京都○○区）</p>
@@ -892,6 +913,7 @@ header {
     ショパン バラード第1番、<br>
     ベートーヴェン ピアノソナタ「熱情」
   </p>
+
 </div>
 
 <div class="concert reveal">
