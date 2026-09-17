@@ -723,6 +723,39 @@ header {
     flex: 0 0 82%;
   }
 }
+    .profile-name {
+  margin-bottom: 35px;
+}
+
+.profile-name-en {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  color: #403937;
+}
+
+.profile-name-ja {
+  display: block;
+  margin-top: 8px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: #817572;
+}
+
+@media (max-width: 760px) {
+  .profile-name-en {
+    font-size: 34px;
+  }
+
+  .profile-name-ja {
+    font-size: 14px;
+  }
+}
   </style>
 </head>
 
@@ -1043,11 +1076,10 @@ header {
           </div>
 
 
-          <div class="profile-text reveal">
-
-            <h3>
-              YUIKO MYOCHI
-            </h3>
+     <div class="profile-name">
+  <span class="profile-name-en">YUIKO MYOCHI</span>
+  <span class="profile-name-ja">名智 由似子</span>
+</div>
 
         <p>
   福岡県福岡市出身。<br>
